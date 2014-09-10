@@ -1,0 +1,74 @@
+var pattern = /.*www.flipkart.com;
+var pattern_old=/.*flipkart.com.*pid=.*/;
+var pt_new=/.*flipkart.com.*itm.*/;
+var pt_fkt=/.*flipkart.com.* ? .*/;
+var newurl;
+//alert(pattern.test(window.location.href));
+var pattern2=/ozyxatech/;
+
+var amz_pattern=/.*amazon.in.*qid=.*/;
+var amz_pattern3=/.*amazon.in.*pf_rd_m=.*/;
+var amz_pattern4=/.*amazon.in.*dp.*/;
+var amz_pattern7=/.amazon.in.*pid.*/;
+var amz_pattern5=/.*amazon.in.*product.*/;
+var amz_pattern2=/ozyxatech/;
+var amz_pattern6=/.*amazon.in.*product.* ? .*/;
+
+var snp_pattern=/.*snapdeal.com.*product.*/;
+var snp_pattern2=/aff_id=6006/
+var snp_pt=/.*snapdeal.com.*?q=.*/;
+
+if (pattern.test(window.location.href)) // if it matches pattern defined above
+{
+	if (!pattern2.test(window.location.href))
+	{
+		//if (pt_fkt.test(window.location.href))
+		//{
+			newurl = window.location.href+ "?affid=ozyxatech";
+			chrome.extension.sendRequest({redirect: newurl}); // send message to redirect
+		//}
+		//else
+		//{
+		//	newurl = window.location.href+ "?affid=ozyxatech";
+		//	chrome.extension.sendRequest({redirect: newurl}); // send message to redirect
+		//}
+	}
+}
+
+
+
+if (amz_pattern.test(window.location.href) || amz_pattern3.test(window.location.href) || amz_pattern4.test(window.location.href) ||amz_pattern5.test(window.location.href) || amz_pattern7.test(window.location.href)) // if it matches pattern defined above
+ {
+ 	if (!amz_pattern2.test(window.location.href))
+ 	{
+ 		if (amz_pattern6.test(window.location.href) || amz_pattern.test(window.location.href) || amz_pattern3.test(window.location.href) || amz_pattern7.test(window.location.href))
+ 		{
+ 			newurl = window.location.href+ "&tag=ozyxatech-21";
+ 			chrome.extension.sendRequest({redirect: newurl}); // send message to redirect
+ 		}
+ 		else
+ 		{
+ 			newurl = window.location.href+ "?tag=ozyxatech-21";
+ 			chrome.extension.sendRequest({redirect: newurl}); // send message to redirect
+ 		}
+	}
+}
+
+
+
+if (snp_pattern.test(window.location.href)) // if it matches pattern defined above
+ {
+ 	if (!snp_pattern2.test(window.location.href))
+ 	{
+ 		if (snp_pt.test(window.location.href))
+ 		{
+ 			newurl = window.location.href+ "?utm_source=aff_prog&utm_campaign=afts&offer_id=16&aff_id=6006";
+ 			chrome.extension.sendRequest({redirect: newurl}); // send message to redirect
+ 		}
+ 		else
+ 		{
+ 			newurl = window.location.href+ "?utm_source=aff_prog&utm_campaign=afts&offer_id=16&aff_id=6006";
+ 			chrome.extension.sendRequest({redirect: newurl}); // send message to redirect
+ 		}
+	}
+}
